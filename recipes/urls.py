@@ -1,9 +1,10 @@
-from django.urls import path  # Incluido
+from django.urls import path
 
-from recipes.views import contato, home, sobre
+from . import views
+
+app_name = 'recipes'
 
 urlpatterns = [
-    path('', home),
-    path('contato/', contato),
-    path('sobre/', sobre),  # Criado a rota
+    path('', views.home, name="home"),
+    path('recipes/<int:id>/', views.recipe, name="recipe"),
 ]
